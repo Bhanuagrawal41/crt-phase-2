@@ -75,4 +75,24 @@ class Solution {
         
         return false;
     }
-}
+}//moore voting algorithm
+class Solution {
+public:
+    int majorityElement(vector<int>& nums) {
+        
+
+        unordered_map<int , int> mp;
+        for(int i = 0; i<nums.size(); i++){
+            mp[nums[i]]++;
+        }
+        int max = INT_MIN;
+        int ans;
+        for(int i = 0; i < nums.size(); i++){
+            if(mp[nums[i]] > max){
+                max = mp[nums[i]];
+                ans = nums[i];
+            }
+
+        }
+        return ans;
+        
