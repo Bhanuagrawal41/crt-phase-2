@@ -48,3 +48,31 @@ public:
         
     }
 };
+// now in this question we have to check that we can spilt a array in such way that both part has the same subarray sum
+class Solution {
+    public boolean canSplit(int arr[]) {
+        // code he
+        int total = 0;
+        for(int i = 0; i< arr.length; i++){
+            total +=  arr[i];
+            
+        }
+        int sum = 0;
+        int sum2 = 0;
+        for(int j = 0; j<arr.length-1; j++)
+        {
+            sum = sum + arr[j];
+         sum2 = total - sum;
+          if(sum == sum2){
+            return true;
+        }
+            
+            
+            
+        }
+       
+        
+        
+        return false;
+    }
+}
