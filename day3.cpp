@@ -1,3 +1,6 @@
+
+// binary searach 
+// leet code 704
 class Solution {
 public:
     int search(vector<int>& nums, int target) {
@@ -21,6 +24,8 @@ public:
         return -1;
     }
 };
+// peak index in an mountain array 
+// leet code 852
 class Solution {
 public:
     int peakIndexInMountainArray(vector<int>& arr) {
