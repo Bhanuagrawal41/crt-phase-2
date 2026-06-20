@@ -150,3 +150,49 @@ public:
         
     }
 };
+// agrresive cow quetion geek for geek whoooooooo mmmeeeeeeeeeee 
+
+class Solution {
+  public:
+    bool ispossible(vector<int> &stalls, int k, int mid){
+        int cow = 1;
+        int stal = stalls[0];
+        
+        for(int i = 0; i<stalls.size(); i++){
+            if(stalls[i]-stal >= mid){
+                cow++;
+                stal = stalls[i];
+                
+            } 
+                if(cow == k){
+                return true;
+            }
+            } 
+            return false;
+            
+            
+    }
+  
+  
+  int aggressiveCows(vector<int> &stalls, int k) {
+        // code here
+        sort(stalls.begin(),stalls.end());
+        int n = stalls.size();
+        int start = 1;
+        int end = stalls[n-1] - stalls[0];
+        int ans;
+         
+         while(start <= end){
+             int mid = (start + end )/2;
+             if(ispossible(stalls, k, mid)){
+                 ans = mid;
+                 start = mid + 1;
+                 
+             } else {
+                 end = mid -1;
+             }
+         }
+         return ans;
+        
+    }
+};
