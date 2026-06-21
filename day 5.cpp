@@ -100,3 +100,34 @@ class Solution {
         
     }
 };
+
+
+// leet code = 231 
+// check is this power of 2 or not 
+
+
+class Solution {
+public:
+
+    bool check(int n, int k){
+         
+        if(n == pow(2,k)){
+            return true;
+        }
+
+        if(pow(2,k) > n){
+            return false;
+        }
+        
+         return check(n,k+1);
+        
+    }
+
+
+
+     
+    bool isPowerOfTwo(int n) {
+       return check(n,0);
+        
+    }
+};
