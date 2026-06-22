@@ -92,3 +92,82 @@ int main()
    subsequence(str, 0, ans);
     return 0;
 }
+
+
+
+
+
+#include <iostream>
+#include<vector>
+using namespace std;
+
+void merge(int arr[], int st, int mid, int end)
+{
+    vector<int> output(end-st+1);
+
+    int i = st, j = mid+1;
+    int k = 0;//iterate to output array
+
+    while(i<=mid && j<=end)
+    {
+        if(arr[i]<arr[j])
+        {
+            output[k] = arr[i];
+            i++;
+            k++;
+        }
+        else
+        {
+            output[k] = arr[j];
+            j++;
+            k++;
+        }
+    }
+    //if left array elements remaining
+    while(i<=mid)
+    {
+        output[k] = arr[i];
+        i++;
+        k++;
+    }
+
+    //if right array elements remaining
+    while(j<=end)
+    {
+        output[k] = arr[j];
+        j++;
+        k++;
+    }
+
+    //copy all elements of output array into input array(original array)
+    k=0;
+    for(int i=st; i<=end;i++)
+    {
+        arr[i] = output[k];
+        k++;
+    }
+}
+
+void mergeSort(int arr[], int st, int end)
+{
+    //base case
+    if(st >= end)
+    return;
+
+    int mid = (st+end)/2;
+    //left subarray
+    mergeSort(arr,st,mid);
+    //right subarray
+    mergeSort(arr,mid+1,end);
+
+    merge(arr,st,mid,end);
+}
+int main() 
+{
+    int arr[5] = {5,3,1,4,6};
+
+    mergeSort(arr,0,4);
+    for(int i=0;i<5;i++)
+    cout<<arr[i]<<" ";
+    return 0;
+}
