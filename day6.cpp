@@ -51,3 +51,44 @@ public:
         // return -1;
     }
 };
+
+
+
+
+
+
+#include <iostream>
+using namespace std;
+void subsequence(string str, int i){
+    // base case ---  //
+    if(i == str.length()){
+        return;
+    }
+
+    //ignore any element
+    subsequence(str, i+1, ans);
+
+
+    ans += str[i];
+    // include an ith element
+    ans += str[i];
+
+    // print output
+
+    cout <<ans<<" ";
+    subsequence(str, i+1, ans);
+
+}
+
+
+
+
+int main() 
+{
+   string str = "abc";
+   string ans = "";
+
+
+   subsequence(str, 0, ans);
+    return 0;
+}
