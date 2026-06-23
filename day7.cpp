@@ -17,3 +17,27 @@ class Solution {
     }
 };
 
+class Solution {
+  public:
+    Node* removeLastNode(Node* head) {
+        // code here
+        if(head == NULL)
+        return NULL;
+        else if(head -> next == NULL){
+            delete head;
+            head = NULL;
+            
+        }
+        else{
+        Node *temp = head;
+        while(temp -> next -> next != NULL){
+            temp = temp -> next;
+        }
+        
+        delete(temp -> next);
+        temp -> next = NULL;
+        
+        return head;
+        }
+    }
+};
