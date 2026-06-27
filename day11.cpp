@@ -73,6 +73,33 @@ public:
         
     }
 };
+//==-----------------------worng soltuition-----------//
+class Solution {
+  public:
+    void nearlySorted(vector<int>& arr, int k) {
+        // code here
+        priority_queue<int, vector<int>,greater<int>> minheap;
+        vector<int> output;
+        for(int i = 0; i< arr.size(); i++){
+            minheap.push(arr[i]);
+            if(minheap.size() > k){
+                
+                output.push_back(min_heap.top());
+                minheap.pop();
+                
+            }
+        }
+        
+        whileI(minheap.size() != 0){
+            output.push_back(minheap.top());
+            minheap.pop();
+        }
+        arr = output;
+        
+        
+
+    }
+};
 
 
 
