@@ -184,3 +184,20 @@ public:
      return ans;
      }
 };
+
+
+//left view binary tree problem reamin incompleter 
+class Solution {
+  public:
+    vector<int> leftView(Node *root) {
+        // code here
+        vector<int> ans;
+        if(root == NULL)
+            return ans;
+            
+            queue<Node*> q;
+            q.push(root)
+        
+        
+    }
+};
