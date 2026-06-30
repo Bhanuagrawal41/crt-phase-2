@@ -25,3 +25,27 @@ class Solution {
     }
     
 };
+class Solution {
+  public:
+     void sum(Node* root, int &sums){
+         if(root == NULL){
+             return;
+             
+         }
+         
+         
+         sums = sums + root->data;
+         sum(root->left, sums);
+         sum(root->right, sums);
+     }
+  
+  
+    
+    int sumBT(Node* root) {
+        // code here
+        int sums = 0;
+        
+        sum(root, sums);
+        return sums;
+    }
+};
