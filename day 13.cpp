@@ -71,3 +71,29 @@ public:
         return 1+max(maxDepth(root->left), maxDepth(root->right));
     }
 };
+
+class Solution {
+  public:
+    void preorder(Node* node, int &count){
+        if(node == NULL)
+        return;
+        
+        
+        if(node->left != NULL ||  node->right != NULL){
+            count++;
+        }
+        
+        preorder(node->left, count);
+        preorder(node->right, count);
+    }
+  
+  
+    int countNonLeafNodes(Node* root) {
+        // Code here
+        int count = 0;
+        preorder(root,count);
+        return count;
+        
+    }
+};
+
